@@ -1,0 +1,410 @@
+﻿{
+  "sha": "64d73ac9482b0fde1b3a7f3b5a01f0432879f59d",
+  "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/trees/64d73ac9482b0fde1b3a7f3b5a01f0432879f59d",
+  "tree": [
+    {
+      "path": ".devcontainer",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "e6b8fd1cfd5b4bb39535678c2f5227105b154f31",
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/trees/e6b8fd1cfd5b4bb39535678c2f5227105b154f31"
+    },
+    {
+      "path": ".devcontainer/devcontainer.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "40ff7d5c60f146ce33823c84a2f9b714fa89e721",
+      "size": 908,
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/blobs/40ff7d5c60f146ce33823c84a2f9b714fa89e721"
+    },
+    {
+      "path": ".github",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "e5de6bcaba52494c96c339d9d09fbac2810b6aac",
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/trees/e5de6bcaba52494c96c339d9d09fbac2810b6aac"
+    },
+    {
+      "path": ".github/dependabot.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f33a02cd16e48a11403f8a847d5f2fd282e1559a",
+      "size": 467,
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/blobs/f33a02cd16e48a11403f8a847d5f2fd282e1559a"
+    },
+    {
+      "path": ".github/workflows",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "08ccc9a359495209c6ede0307d8cd2952e5de30e",
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/trees/08ccc9a359495209c6ede0307d8cd2952e5de30e"
+    },
+    {
+      "path": ".github/workflows/docker-image.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b0fd04333c5c629432feb931c1c71a2ca1eb4e85",
+      "size": 528,
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/blobs/b0fd04333c5c629432feb931c1c71a2ca1eb4e85"
+    },
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a159afc7792c2a6e3c4ab604e8c39141a8cefa84",
+      "size": 3098,
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/blobs/a159afc7792c2a6e3c4ab604e8c39141a8cefa84"
+    },
+    {
+      "path": "Dockerfile",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b5c278e4f05dfd2fd8dbda8110fd5a0b53912f22",
+      "size": 591,
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/blobs/b5c278e4f05dfd2fd8dbda8110fd5a0b53912f22"
+    },
+    {
+      "path": "Dockerfile.test",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3ccb995a4daf065dc5b7a028c26d559bc48bae3b",
+      "size": 753,
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/blobs/3ccb995a4daf065dc5b7a028c26d559bc48bae3b"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "38d77aff266f5b69bdbf63111f7dde14b7f9e3ef",
+      "size": 1067,
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/blobs/38d77aff266f5b69bdbf63111f7dde14b7f9e3ef"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6ed28abe2f92e1754f563f667859101aa0fe53fb",
+      "size": 13204,
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/blobs/6ed28abe2f92e1754f563f667859101aa0fe53fb"
+    },
+    {
+      "path": "docs",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "3eec5d73714d5e1e915836c01af0d9a9e86d4923",
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/trees/3eec5d73714d5e1e915836c01af0d9a9e86d4923"
+    },
+    {
+      "path": "docs/demo1.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ae9178b42e416039fd7611f3cd735db4cb8f3a4a",
+      "size": 3055,
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/blobs/ae9178b42e416039fd7611f3cd735db4cb8f3a4a"
+    },
+    {
+      "path": "docs/imgs",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a4da35cf704bd30493290981ef4fed8e031eb49b",
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/trees/a4da35cf704bd30493290981ef4fed8e031eb49b"
+    },
+    {
+      "path": "docs/imgs/VulcanEdge.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3394164aa54494923463303cbf273dc8a09ba8e2",
+      "size": 621035,
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/blobs/3394164aa54494923463303cbf273dc8a09ba8e2"
+    },
+    {
+      "path": "docs/imgs/charts.drawio",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b4aafd360694f13fe5563898ba38fbcae430f7b4",
+      "size": 7964,
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/blobs/b4aafd360694f13fe5563898ba38fbcae430f7b4"
+    },
+    {
+      "path": "docs/imgs/streaming.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0f24a0276326623e4c96bf579a258d5dbf3ab9d8",
+      "size": 71190,
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/blobs/0f24a0276326623e4c96bf579a258d5dbf3ab9d8"
+    },
+    {
+      "path": "docs/imgs/whisper-flow.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b2fa2d55dcccb51cad63463e4ec9bc70dbe74d26",
+      "size": 1482011,
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/blobs/b2fa2d55dcccb51cad63463e4ec9bc70dbe74d26"
+    },
+    {
+      "path": "docs/metavox.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "06de6de0f26ad7dd2362b6a53c3dfe86dac90c48",
+      "size": 3131,
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/blobs/06de6de0f26ad7dd2362b6a53c3dfe86dac90c48"
+    },
+    {
+      "path": "docs/monetizations.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f2ba663aeb168357a24bfe26334746a3eb9aa766",
+      "size": 3783,
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/blobs/f2ba663aeb168357a24bfe26334746a3eb9aa766"
+    },
+    {
+      "path": "docs/plans.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5d3f74d4d46b4294f86ef5de37ef70409f78a50c",
+      "size": 5092,
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/blobs/5d3f74d4d46b4294f86ef5de37ef70409f78a50c"
+    },
+    {
+      "path": "docs/sem-assistant.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8451d4e6b022cd73e47cf6b3eeefdf8cfb9c42fa",
+      "size": 4306,
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/blobs/8451d4e6b022cd73e47cf6b3eeefdf8cfb9c42fa"
+    },
+    {
+      "path": "requirements.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "817c1fef14e0211e53133c0408ec309c3ed42c37",
+      "size": 327,
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/blobs/817c1fef14e0211e53133c0408ec309c3ed42c37"
+    },
+    {
+      "path": "run.sh",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "fd9114aba975f35c1d9d6a625aa2a954f4d558ad",
+      "size": 3050,
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/blobs/fd9114aba975f35c1d9d6a625aa2a954f4d558ad"
+    },
+    {
+      "path": "setup.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d0a8bdf3f661f13c21d27b735874b28bba604446",
+      "size": 875,
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/blobs/d0a8bdf3f661f13c21d27b735874b28bba604446"
+    },
+    {
+      "path": "tests",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f649b7cbee65d5701e0ea4d1264b88cb88d3aa8b",
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/trees/f649b7cbee65d5701e0ea4d1264b88cb88d3aa8b"
+    },
+    {
+      "path": "tests/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "tests/audio",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "0bdb23069d8a9bdd62e0674fc85c53086ba903a2",
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/trees/0bdb23069d8a9bdd62e0674fc85c53086ba903a2"
+    },
+    {
+      "path": "tests/audio/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "tests/audio/test_audio.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "20f857a771de15f9eb854b24dc933eba94b63e78",
+      "size": 2119,
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/blobs/20f857a771de15f9eb854b24dc933eba94b63e78"
+    },
+    {
+      "path": "tests/benchmark",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "306ca343fa204ab86038ebf8002ff9663b77ca7b",
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/trees/306ca343fa204ab86038ebf8002ff9663b77ca7b"
+    },
+    {
+      "path": "tests/benchmark/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "tests/benchmark/test_benchmark.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "704a8be366725910fbb42e488ef62d7af3aa9d5c",
+      "size": 2289,
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/blobs/704a8be366725910fbb42e488ef62d7af3aa9d5c"
+    },
+    {
+      "path": "tests/examples",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "ce8cf4439c7593891cc3408b88b2188572abe4fe",
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/trees/ce8cf4439c7593891cc3408b88b2188572abe4fe"
+    },
+    {
+      "path": "tests/examples/mic_transcribe.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aa63ace99be85bf1157aae5b143788f5eb74df70",
+      "size": 1624,
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/blobs/aa63ace99be85bf1157aae5b143788f5eb74df70"
+    },
+    {
+      "path": "tests/resources",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "519d90af2be9ecc92106bd1b6475ae29300eeb4e",
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/trees/519d90af2be9ecc92106bd1b6475ae29300eeb4e"
+    },
+    {
+      "path": "tests/resources/3081-166546-0000.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1c81399a9f690118b7588d051d2505fd3343ad60",
+      "size": 4220,
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/blobs/1c81399a9f690118b7588d051d2505fd3343ad60"
+    },
+    {
+      "path": "tests/resources/3081-166546-0000.wav",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aaae766e8bfe609b45e030d97f26de9a4c15452f",
+      "size": 336044,
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/blobs/aaae766e8bfe609b45e030d97f26de9a4c15452f"
+    },
+    {
+      "path": "tests/test_chat_room.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7a5da7c181a844b4fa37f6f8e182c14567129d69",
+      "size": 1187,
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/blobs/7a5da7c181a844b4fa37f6f8e182c14567129d69"
+    },
+    {
+      "path": "tests/test_streaming.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c85adb65547544638436d52f8c70efe5577c2089",
+      "size": 3164,
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/blobs/c85adb65547544638436d52f8c70efe5577c2089"
+    },
+    {
+      "path": "tests/test_transcriber.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9aa85852c968cfeaf4a4a01e502fb04455654f8e",
+      "size": 1641,
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/blobs/9aa85852c968cfeaf4a4a01e502fb04455654f8e"
+    },
+    {
+      "path": "tests/utils.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bf601b21e3f0a28c946c89f822488c2d3d149413",
+      "size": 868,
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/blobs/bf601b21e3f0a28c946c89f822488c2d3d149413"
+    },
+    {
+      "path": "whisperflow",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f7108520d7f39dd965f1962e31abad78c216e945",
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/trees/f7108520d7f39dd965f1962e31abad78c216e945"
+    },
+    {
+      "path": "whisperflow/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "942f2eb574d9fa4053452514b02a08e4455ecc64",
+      "size": 51,
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/blobs/942f2eb574d9fa4053452514b02a08e4455ecc64"
+    },
+    {
+      "path": "whisperflow/audio",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "570619fb61cddeb1145a9b287130e49124487e0e",
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/trees/570619fb61cddeb1145a9b287130e49124487e0e"
+    },
+    {
+      "path": "whisperflow/audio/microphone.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a0fd19cf8f5eabd7f65ec3dc2e326b61aacd7bf5",
+      "size": 1383,
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/blobs/a0fd19cf8f5eabd7f65ec3dc2e326b61aacd7bf5"
+    },
+    {
+      "path": "whisperflow/chat_room.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4497031f4c3be0fc1fbba90a300692eac6c29d13",
+      "size": 2061,
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/blobs/4497031f4c3be0fc1fbba90a300692eac6c29d13"
+    },
+    {
+      "path": "whisperflow/fast_server.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5bb273395fe73a0e7bac55f859a1aaaac264ec5a",
+      "size": 1705,
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/blobs/5bb273395fe73a0e7bac55f859a1aaaac264ec5a"
+    },
+    {
+      "path": "whisperflow/models",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f1b91d835c913458b23edf0b3ec4660f79712f8d",
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/trees/f1b91d835c913458b23edf0b3ec4660f79712f8d"
+    },
+    {
+      "path": "whisperflow/models/tiny.en.pt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bd610a1fcff578e61b6c0494a7a72e21fa25cf93",
+      "size": 75571315,
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/blobs/bd610a1fcff578e61b6c0494a7a72e21fa25cf93"
+    },
+    {
+      "path": "whisperflow/streaming.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6904abc0fca4527de33d59f66e370b2d06b79a1d",
+      "size": 2179,
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/blobs/6904abc0fca4527de33d59f66e370b2d06b79a1d"
+    },
+    {
+      "path": "whisperflow/transcriber.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "192d5128b461b7c0d96492302989bc00d995b3ae",
+      "size": 1223,
+      "url": "https://api.github.com/repos/dimastatz/whisper-flow/git/blobs/192d5128b461b7c0d96492302989bc00d995b3ae"
+    }
+  ],
+  "truncated": false
+}

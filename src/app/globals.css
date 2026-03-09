@@ -1,0 +1,208 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Default to Dark (VS Code Dark Modern) */
+  --vscode-bg: #1e1e1e;
+  --vscode-fg: #cccccc;
+  --vscode-border: #2b2b2b;
+  --vscode-focusBorder: #007fd4;
+
+  --vscode-titleBar-bg: #18181b;
+  --vscode-titleBar-fg: #cccccc;
+
+  --vscode-activityBar-bg: #333333;
+  --vscode-activityBar-fg: #ffffff;
+  --vscode-activityBar-inactiveFg: rgba(255, 255, 255, 0.4);
+  --vscode-activityBar-border: #252526;
+
+  --vscode-sidebar-bg: #252526;
+  --vscode-sidebar-border: #2b2b2b;
+  --vscode-sidebar-header-fg: #bbbbbb;
+
+  --vscode-editor-bg: #1e1e1e;
+  --vscode-editor-lineHighlight: #2a2d2e;
+
+  --vscode-tab-activeBg: #1e1e1e;
+  --vscode-tab-inactiveBg: #2d2d2d;
+  --vscode-tab-activeFg: #ffffff;
+  --vscode-tab-inactiveFg: #969696;
+
+  --vscode-statusBar-bg: #007acc;
+  --vscode-statusBar-fg: #ffffff;
+
+  --vscode-input-bg: #3c3c3c;
+  --vscode-input-fg: #cccccc;
+
+  --vscode-list-hoverBg: #2a2d2e;
+  --vscode-list-activeSelectionBg: #37373d;
+}
+
+/* 
+  ========================================
+  GLOBAL IDE THEME VARIABLES (DYNAMIC)
+  ========================================
+*/
+
+body[data-theme="synthea-default"] {
+  --ide-bg-main: #0a0a0a;
+  --ide-bg-panel: #111111;
+  --ide-bg-active: #27272a;
+  --ide-bg-hover: #1e1e1e;
+  --ide-border: #27272a;
+  --ide-border-hover: rgba(255,255,255,0.2);
+  --ide-text-main: #ffffff;
+  --ide-text-muted: #a1a1aa;
+}
+
+body[data-theme="monaco-red"] {
+  --ide-bg-main: #140303;
+  --ide-bg-panel: #1f0505;
+  --ide-bg-active: #3a0b0b;
+  --ide-bg-hover: #2a0808;
+  --ide-border: #380a0a;
+  --ide-border-hover: #5c1111;
+  --ide-text-main: #ffeded;
+  --ide-text-muted: #ff9999;
+}
+
+body[data-theme="monaco-purple"] {
+  --ide-bg-main: #0c0211;
+  --ide-bg-panel: #15041f;
+  --ide-bg-active: #2b083d;
+  --ide-bg-hover: #220630;
+  --ide-border: #2a073c;
+  --ide-border-hover: #480c68;
+  --ide-text-main: #f8edff;
+  --ide-text-muted: #d09ef5;
+}
+
+body[data-theme="monaco-green"] {
+  --ide-bg-main: #021104;
+  --ide-bg-panel: #041a08;
+  --ide-bg-active: #0a3810;
+  --ide-bg-hover: #072a0c;
+  --ide-border: #0a3311;
+  --ide-border-hover: #115c1e;
+  --ide-text-main: #efffee;
+  --ide-text-muted: #9afa98;
+}
+
+body[data-theme="monaco-bluish"] {
+  --ide-bg-main: #020811;
+  --ide-bg-panel: #04101f;
+  --ide-bg-active: #092040;
+  --ide-bg-hover: #071830;
+  --ide-border: #082245;
+  --ide-border-hover: #0e3b78;
+  --ide-text-main: #eef5ff;
+  --ide-text-muted: #9bc0f5;
+}
+
+body[data-theme="greenhacker"] {
+  --ide-bg-main: #000000;
+  --ide-bg-panel: #001100;
+  --ide-bg-active: #003300;
+  --ide-bg-hover: #002200;
+  --ide-border: #004400;
+  --ide-border-hover: #00ff00;
+  --ide-text-main: #00ff00;
+  --ide-text-muted: #008800;
+}
+
+/* Light Mode Overrides (VS Code Light Modern) */
+body.theme-light {
+  --vscode-bg: #ffffff;
+  --vscode-fg: #3b3b3b;
+  --vscode-border: #e5e5e5;
+  --vscode-focusBorder: #0090f1;
+
+  --vscode-titleBar-bg: #dddddd;
+  --vscode-titleBar-fg: #333333;
+
+  --vscode-activityBar-bg: #f3f3f3;
+  --vscode-activityBar-fg: #424242;
+  --vscode-activityBar-inactiveFg: rgba(0, 0, 0, 0.4);
+  --vscode-activityBar-border: #e5e5e5;
+
+  --vscode-sidebar-bg: #f3f3f3;
+  --vscode-sidebar-border: #e5e5e5;
+  --vscode-sidebar-header-fg: #6f6f6f;
+
+  --vscode-editor-bg: #ffffff;
+  --vscode-editor-lineHighlight: #f0f0f0;
+
+  --vscode-tab-activeBg: #ffffff;
+  --vscode-tab-inactiveBg: #ececec;
+  --vscode-tab-activeFg: #333333;
+  --vscode-tab-inactiveFg: #8b949e;
+
+  --vscode-statusBar-bg: #007acc;
+  --vscode-statusBar-fg: #ffffff;
+
+  --vscode-input-bg: #ffffff;
+  --vscode-input-fg: #333333;
+  --vscode-input-border: #cecece;
+
+  --vscode-list-hoverBg: #f0f0f0;
+  --vscode-list-activeSelectionBg: #e4e6f1;
+}
+
+body {
+  background-color: var(--vscode-bg);
+  color: var(--vscode-fg);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif;
+
+  /* FIX 1: Removed 'overflow: hidden' so the landing page can scroll */
+  /* FIX 2: Removed 'user-select: none' so users can select text on the landing page */
+  overflow-x: hidden;
+  /* Only prevent horizontal scroll */
+  overflow-y: auto;
+  /* Allow vertical scroll */
+}
+
+/* Custom Scrollbar Styles */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+  height: 0px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #52525b;
+}
+
+/* Hide horizontal scrollbar specifically */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #3f3f46 transparent;
+  overflow-x: hidden !important;
+}
+
+/* Xterm Scrollbar Styling */
+.xterm-viewport::-webkit-scrollbar {
+  width: 10px;
+}
+
+.xterm-viewport::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+
+.xterm-viewport::-webkit-scrollbar-thumb {
+  background: #333333;
+  border: 2px solid #1e1e1e;
+  border-radius: 10px;
+}
+
+.xterm-viewport::-webkit-scrollbar-thumb:hover {
+  background: #444444;
+}

@@ -1,0 +1,129 @@
+src/app/(auth)/signin/page.tsx(18,11): error TS2339: Property 'lastCommand' does not exist on type 'UseVoiceAgentReturn'.
+src/app/(auth)/signin/page.tsx(18,24): error TS2339: Property 'isListening' does not exist on type 'UseVoiceAgentReturn'.
+src/components/parts/activitybar/ActivityBar.tsx(4,10): error TS2305: Module '"@/stores/useLayoutStore"' has no exported member 'useLayoutStore'.
+src/components/parts/activitybar/ActivityBar.tsx(4,26): error TS2305: Module '"@/stores/useLayoutStore"' has no exported member 'ActivityView'.
+src/components/parts/auxiliarybar/AuxiliaryBar.tsx(4,10): error TS2305: Module '"@/stores/useLayoutStore"' has no exported member 'useLayoutStore'.
+src/components/parts/panel/Panel.tsx(4,10): error TS2305: Module '"@/stores/useLayoutStore"' has no exported member 'useLayoutStore'.
+src/components/parts/quickinput/CommandPalette.tsx(3,10): error TS2305: Module '"@/stores/useLayoutStore"' has no exported member 'useLayoutStore'.
+src/components/parts/sidebar/SideBar.tsx(3,10): error TS2305: Module '"@/stores/useLayoutStore"' has no exported member 'useLayoutStore'.
+src/components/parts/sidebar/views/ExplorerPane.tsx(7,11): error TS2339: Property 'files' does not exist on type 'EditorState'.
+src/components/parts/sidebar/views/ExplorerPane.tsx(7,18): error TS2339: Property 'activeFileId' does not exist on type 'EditorState'.
+src/components/parts/sidebar/views/ExplorerPane.tsx(7,32): error TS2339: Property 'selectFile' does not exist on type 'EditorState'.
+src/components/parts/sidebar/views/ExplorerPane.tsx(33,21): error TS7006: Parameter 'file' implicitly has an 'any' type.
+src/components/parts/sidebar/views/ExplorerView.tsx(7,11): error TS2339: Property 'files' does not exist on type 'EditorState'.
+src/components/parts/sidebar/views/ExplorerView.tsx(7,18): error TS2339: Property 'activeFileId' does not exist on type 'EditorState'.
+src/components/parts/sidebar/views/ExplorerView.tsx(7,32): error TS2339: Property 'selectFile' does not exist on type 'EditorState'.
+src/components/parts/sidebar/views/ExplorerView.tsx(18,23): error TS7006: Parameter 'file' implicitly has an 'any' type.
+src/components/parts/sidebar/views/ExplorerView.tsx(22,36): error TS7006: Parameter 'f' implicitly has an 'any' type.
+src/components/parts/sidebar/views/SideBar.tsx(3,10): error TS2305: Module '"@/stores/useLayoutStore"' has no exported member 'useLayoutStore'.
+src/components/parts/sidebar/views/SideBar.tsx(4,26): error TS2307: Cannot find module './views/ExplorerPane' or its corresponding type declarations.
+src/components/parts/sidebar/views/SideBar.tsx(5,24): error TS2307: Cannot find module './views/SearchPane' or its corresponding type declarations.
+src/components/parts/statusbar/StatusBar.tsx(4,10): error TS2305: Module '"@/stores/useLayoutStore"' has no exported member 'useLayoutStore'.
+src/components/providers/ThemeProvider.tsx(5,41): error TS2307: Cannot find module 'next-themes/dist/types' or its corresponding type declarations.
+src/components/workbench/workbench.ts(7,35): error TS2307: Cannot find module '../../base/browser/dom.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(8,63): error TS2307: Cannot find module '../../base/common/event.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(9,43): error TS2307: Cannot find module '../../base/common/async.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(10,47): error TS2307: Cannot find module '../../base/browser/browser.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(11,22): error TS2307: Cannot find module '../../base/common/performance.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(12,62): error TS2307: Cannot find module '../../base/common/errors.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(13,26): error TS2307: Cannot find module '../../platform/registry/common/platform.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(14,66): error TS2307: Cannot find module '../../base/common/platform.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(15,84): error TS2307: Cannot find module '../common/contributions.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(16,58): error TS2307: Cannot find module '../common/editor.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(17,48): error TS2307: Cannot find module '../../platform/instantiation/common/extensions.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(18,76): error TS2307: Cannot find module '../services/layout/browser/layoutService.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(19,83): error TS2307: Cannot find module '../../platform/storage/common/storage.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(20,66): error TS2307: Cannot find module '../../platform/configuration/common/configuration.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(21,39): error TS2307: Cannot find module '../../platform/instantiation/common/instantiation.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(22,35): error TS2307: Cannot find module '../../platform/instantiation/common/serviceCollection.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(23,70): error TS2307: Cannot find module '../services/lifecycle/common/lifecycle.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(24,38): error TS2307: Cannot find module '../../platform/notification/common/notification.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(25,37): error TS2307: Cannot find module '../services/notification/common/notificationService.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(26,37): error TS2307: Cannot find module './parts/notifications/notificationsCenter.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(27,37): error TS2307: Cannot find module './parts/notifications/notificationsAlerts.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(28,37): error TS2307: Cannot find module './parts/notifications/notificationsStatus.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(29,46): error TS2307: Cannot find module './parts/notifications/notificationsCommands.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(30,37): error TS2307: Cannot find module './parts/notifications/notificationsToasts.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(31,34): error TS2307: Cannot find module '../../base/browser/ui/aria/aria.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(32,34): error TS2307: Cannot find module '../../editor/browser/config/fontMeasurements.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(33,51): error TS2307: Cannot find module '../../editor/common/config/fontInfoFromSettings.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(34,29): error TS2307: Cannot find module '../../platform/log/common/log.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(35,32): error TS2307: Cannot find module '../../base/common/errorMessage.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(36,45): error TS2307: Cannot find module './contextkeys.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(37,26): error TS2307: Cannot find module '../../base/common/arrays.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(38,38): error TS2307: Cannot find module '../../platform/instantiation/common/instantiationService.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(39,24): error TS2307: Cannot find module './layout.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(40,30): error TS2307: Cannot find module '../services/host/browser/host.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(41,32): error TS2307: Cannot find module '../../platform/dialogs/common/dialogs.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(42,28): error TS2307: Cannot find module '../../base/browser/window.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(43,28): error TS2307: Cannot find module '../../base/browser/pixelRatio.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(44,55): error TS2307: Cannot find module '../../platform/hover/browser/hover.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(45,41): error TS2307: Cannot find module '../../base/browser/ui/hover/hoverDelegateFactory.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(46,43): error TS2307: Cannot find module '../../base/browser/ui/hover/hoverDelegate2.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(47,54): error TS2307: Cannot find module '../../platform/accessibilitySignal/browser/progressAccessibilitySignalScheduler.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(48,57): error TS2307: Cannot find module '../../base/browser/ui/progressbar/progressAccessibilitySignal.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(49,40): error TS2307: Cannot find module '../../platform/accessibility/browser/accessibleViewRegistry.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(50,44): error TS2307: Cannot find module './parts/notifications/notificationAccessibleView.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(51,42): error TS2307: Cannot find module '../../platform/markdown/browser/markdownRenderer.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(52,49): error TS2307: Cannot find module '../../editor/browser/widget/markdownRenderer/browser/editorMarkdownCodeBlockRenderer.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(54,33): error TS2307: Cannot find module '../../platform/commands/common/commands.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(55,32): error TS2307: Cannot find module '../services/editor/common/editorService.js' or its corresponding type declarations.
+src/components/workbench/workbench.ts(72,45): error TS2339: Property '_register' does not exist on type 'Workbench'.
+src/components/workbench/workbench.ts(75,44): error TS2339: Property '_register' does not exist on type 'Workbench'.
+src/components/workbench/workbench.ts(97,60): error TS7006: Parameter 'event' implicitly has an 'any' type.
+src/components/workbench/workbench.ts(107,35): error TS7006: Parameter 'error' implicitly has an 'any' type.
+src/components/workbench/workbench.ts(133,18): error TS2339: Property '_register' does not exist on type 'Workbench'.
+src/components/workbench/workbench.ts(138,49): error TS7006: Parameter 'accessor' implicitly has an 'any' type.
+src/components/workbench/workbench.ts(153,42): error TS7006: Parameter 'placement' implicitly has an 'any' type.
+src/components/workbench/workbench.ts(153,53): error TS7006: Parameter 'enableInstantHover' implicitly has an 'any' type.
+src/components/workbench/workbench.ts(157,22): error TS2339: Property 'initLayout' does not exist on type 'Workbench'.
+src/components/workbench/workbench.ts(164,22): error TS2339: Property '_register' does not exist on type 'Workbench'.
+src/components/workbench/workbench.ts(173,22): error TS2339: Property 'createWorkbenchLayout' does not exist on type 'Workbench'.
+src/components/workbench/workbench.ts(176,22): error TS2339: Property 'layout' does not exist on type 'Workbench'.
+src/components/workbench/workbench.ts(186,63): error TS7006: Parameter 'event' implicitly has an 'any' type.
+src/components/workbench/workbench.ts(252,45): error TS7006: Parameter 'accessor' implicitly has an 'any' type.
+src/components/workbench/workbench.ts(271,14): error TS2339: Property '_register' does not exist on type 'Workbench'.
+src/components/workbench/workbench.ts(271,70): error TS7006: Parameter 'e' implicitly has an 'any' type.
+src/components/workbench/workbench.ts(275,18): error TS2339: Property '_register' does not exist on type 'Workbench'.
+src/components/workbench/workbench.ts(275,59): error TS7006: Parameter 'e' implicitly has an 'any' type.
+src/components/workbench/workbench.ts(281,18): error TS2339: Property '_register' does not exist on type 'Workbench'.
+src/components/workbench/workbench.ts(285,14): error TS2339: Property '_register' does not exist on type 'Workbench'.
+src/components/workbench/workbench.ts(285,56): error TS7006: Parameter 'event' implicitly has an 'any' type.
+src/components/workbench/workbench.ts(286,14): error TS2339: Property '_register' does not exist on type 'Workbench'.
+src/components/workbench/workbench.ts(288,18): error TS2339: Property 'dispose' does not exist on type 'Workbench'.
+src/components/workbench/workbench.ts(296,14): error TS2339: Property '_register' does not exist on type 'Workbench'.
+src/components/workbench/workbench.ts(296,53): error TS7006: Parameter 'focus' implicitly has an 'any' type.
+src/components/workbench/workbench.ts(303,14): error TS2339: Property '_register' does not exist on type 'Workbench'.
+src/components/workbench/workbench.ts(303,66): error TS2339: Property 'mainContainer' does not exist on type 'Workbench'.
+src/components/workbench/workbench.ts(304,14): error TS2339: Property '_register' does not exist on type 'Workbench'.
+src/components/workbench/workbench.ts(304,65): error TS2339: Property 'mainContainer' does not exist on type 'Workbench'.
+src/components/workbench/workbench.ts(326,14): error TS2339: Property 'mainContainer' does not exist on type 'Workbench'.
+src/components/workbench/workbench.ts(330,18): error TS2339: Property 'mainContainer' does not exist on type 'Workbench'.
+src/components/workbench/workbench.ts(360,31): error TS2339: Property 'mainContainer' does not exist on type 'Workbench'.
+src/components/workbench/workbench.ts(370,21): error TS2339: Property 'getLayoutClasses' does not exist on type 'Workbench'.
+src/components/workbench/workbench.ts(374,14): error TS2339: Property 'mainContainer' does not exist on type 'Workbench'.
+src/components/workbench/workbench.ts(386,87): error TS2339: Property 'getSideBarPosition' does not exist on type 'Workbench'.
+src/components/workbench/workbench.ts(387,79): error TS2339: Property 'getSideBarPosition' does not exist on type 'Workbench'.
+src/components/workbench/workbench.ts(388,111): error TS2339: Property 'willRestoreEditors' does not exist on type 'Workbench'.
+src/components/workbench/workbench.ts(389,105): error TS2339: Property 'getPanelPosition' does not exist on type 'Workbench'.
+src/components/workbench/workbench.ts(390,102): error TS2339: Property 'getSideBarPosition' does not exist on type 'Workbench'.
+src/components/workbench/workbench.ts(396,18): error TS2339: Property 'getPart' does not exist on type 'Workbench'.
+src/components/workbench/workbench.ts(404,14): error TS2339: Property 'parent' does not exist on type 'Workbench'.
+src/components/workbench/workbench.ts(404,38): error TS2339: Property 'mainContainer' does not exist on type 'Workbench'.
+src/components/workbench/workbench.ts(422,42): error TS2339: Property '_register' does not exist on type 'Workbench'.
+src/components/workbench/workbench.ts(422,114): error TS2339: Property 'mainContainer' does not exist on type 'Workbench'.
+src/components/workbench/workbench.ts(423,42): error TS2339: Property '_register' does not exist on type 'Workbench'.
+src/components/workbench/workbench.ts(423,114): error TS2339: Property 'mainContainer' does not exist on type 'Workbench'.
+src/components/workbench/workbench.ts(424,14): error TS2339: Property '_register' does not exist on type 'Workbench'.
+src/components/workbench/workbench.ts(428,14): error TS2339: Property '_register' does not exist on type 'Workbench'.
+src/components/workbench/workbench.ts(433,14): error TS2339: Property '_register' does not exist on type 'Workbench'.
+src/components/workbench/workbench.ts(444,14): error TS2339: Property 'registerNotifications' does not exist on type 'Workbench'.
+src/components/workbench/workbench.ts(453,18): error TS2339: Property 'restoreParts' does not exist on type 'Workbench'.
+src/components/workbench/workbench.ts(467,14): error TS2339: Property 'whenReady' does not exist on type 'Workbench'.
+src/components/workbench/workbench.ts(469,22): error TS2339: Property 'whenRestored' does not exist on type 'Workbench'.
+src/components/workbench/workbench.ts(482,26): error TS2551: Property 'isRestored' does not exist on type 'Workbench'. Did you mean 'restore'?
+src/components/workbench/workbench.ts(485,26): error TS2339: Property 'whenRestored' does not exist on type 'Workbench'.
+src/components/workbench/workbench.ts(492,55): error TS2339: Property '_register' does not exist on type 'Workbench'.
+src/components/workbench/workbench.ts(493,26): error TS2339: Property '_register' does not exist on type 'Workbench'.
+src/context/ThemeContext.tsx(5,41): error TS2307: Cannot find module 'next-themes/dist/types' or its corresponding type declarations.
+src/features/agent/hooks/useWakeWord.ts(18,20): error TS2554: Expected 0 arguments, but got 1.
