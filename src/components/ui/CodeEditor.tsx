@@ -219,8 +219,9 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ code, language = "python", onCh
   return (
     <div className="h-full w-full overflow-hidden bg-[#0a0a0a]">
       <Editor
+        key={language}
         height="100%"
-        defaultLanguage={language}
+        language={language}
         value={code}
         theme={editorTheme}
         beforeMount={handleBeforeMount}

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState, useRef } from 'react';
-import { Mic, MicOff, Loader2, Sparkles, Send, Terminal, Paperclip, X, Copy, Check, FileText, Plus, History, ArrowRight, Trash2, ChevronDown, Square } from 'lucide-react';
+import { Mic, MicOff, Loader2, Sparkles, Send, Terminal, Paperclip, X, Copy, Check, FileText, Plus, History, ArrowRight, Trash2, ChevronDown, ChevronRight, Square, FolderOpen } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
@@ -22,6 +22,8 @@ interface ChatMsg {
   id?: string;
   sender: 'user' | 'agent';
   text: string;
+  reasoning?: string;       // Accumulated agent thought log
+  files_created?: string[]; // Paths of files modified/created
 }
 
 interface AgentPanelProps {
@@ -44,11 +46,54 @@ const AudioVisualizer = () => (
   </div>
 );
 
+// Collapsible agent reasoning/thinking log
+const CollapsibleReasoning = ({ reasoning }: { reasoning: string }) => {
+  const [open, setOpen] = useState(false);
+  if (!reasoning || !reasoning.trim()) return null;
+  return (
+    <div className="mt-2 border border-purple-500/20 rounded-lg overflow-hidden">
+      <button
+        onClick={() => setOpen(o => !o)}
+        className="w-full flex items-center gap-2 px-3 py-1.5 bg-purple-900/10 hover:bg-purple-900/20 text-[10px] font-mono font-bold text-purple-400/70 uppercase tracking-widest transition-colors text-left"
+      >
+        {open ? <ChevronDown size={11} /> : <ChevronRight size={11} />}
+        <span>Agent Thoughts</span>
+        <span className="ml-auto text-[9px] normal-case text-purple-400/40">{open ? 'collapse' : 'expand'}</span>
+      </button>
+      {open && (
+        <div className="px-3 py-2 bg-[#0a0a0a]/60 text-[10px] font-mono text-gray-400 leading-relaxed whitespace-pre-wrap max-h-64 overflow-y-auto custom-scrollbar border-t border-purple-500/10">
+          {reasoning}
+        </div>
+      )}
+    </div>
+  );
+};
+
+// Clickable file badges that open the file in the editor
+const FileReferences = ({ files, onOpen }: { files: string[]; onOpen: (f: string) => void }) => {
+  if (!files || files.length === 0) return null;
+  return (
+    <div className="mt-2 flex flex-wrap gap-1.5">
+      {files.map((f) => (
+        <button
+          key={f}
+          onClick={() => onOpen(f)}
+          title={`Open ${f}`}
+          className="flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-mono bg-blue-500/10 text-blue-300 border border-blue-500/20 hover:bg-blue-500/20 hover:border-blue-400/40 transition-all truncate max-w-[180px]"
+        >
+          <FolderOpen size={10} className="flex-shrink-0" />
+          <span className="truncate">{f.split('/').pop() || f}</span>
+        </button>
+      ))}
+    </div>
+  );
+};
+
 export default function AgentPanel({ onClose }: AgentPanelProps) {
   const { state, transcript, startListening, stopListening, reset } = useVoiceAgent();
 
   // FIX: Destructure uploadFile and createFile from context
-  const { createFile, uploadFile, projectId, fetchWorkspace, setActiveFileId } = useEditor();
+  const { createFile, uploadFile, projectId, fetchWorkspace, setActiveFileId, closeFile } = useEditor();
 
   const [inputValue, setInputValue] = useState('');
   const [messages, setMessages] = useState<ChatMsg[]>([]);
@@ -131,7 +176,13 @@ export default function AgentPanel({ onClose }: AgentPanelProps) {
       setIsFetchingHistory(true);
       apiClient.ide.getChatHistory(projectId, activeSessionId)
         .then(history => {
-          const msgs = history || [];
+          const msgs: ChatMsg[] = (history || []).map((m: any) => ({
+            id: m.id,
+            sender: m.sender,
+            text: m.text,
+            reasoning: m.reasoning || undefined,
+            files_created: m.files_created ? (() => { try { return JSON.parse(m.files_created); } catch { return []; } })() : undefined,
+          }));
           setMessages(msgs);
           sessionHasMessages.current = msgs.length > 0;
         })
@@ -190,17 +241,27 @@ export default function AgentPanel({ onClose }: AgentPanelProps) {
 
         // Handle File Events (Dynamic Open + Track for Accept/Reject)
         else if (data.type === 'file_event') {
-          console.log("Agent modified file event received:", data.path);
           const path = data.path;
-          setPendingFileChanges(prev => Array.from(new Set([...prev, path])));
+          if (data.event === 'deleted') {
+            console.log("Agent deleted file event received:", path);
+            closeFile(path);
+            fetchWorkspace();
+          } else {
+            console.log("Agent modified file event received:", path);
+            setPendingFileChanges(prev => Array.from(new Set([...prev, path])));
 
-          // Add a small delay to ensure filesystem consistency
-          setTimeout(async () => {
-            console.log("Refreshing workspace for path:", path);
-            await fetchWorkspace();
-            console.log("Workspace refreshed.");
-            setActiveFileId(path);
-          }, 500);
+            // Burst-refresh: the file may be written slightly after the event fires.
+            // Refresh 3 times across 4 seconds to guarantee it appears in the tree.
+            const doRefreshAndOpen = async () => {
+              await fetchWorkspace();
+              // Give React one tick to propagate the new files state
+              await new Promise(r => setTimeout(r, 50));
+              setActiveFileId(path);
+            };
+            setTimeout(doRefreshAndOpen, 800);
+            setTimeout(fetchWorkspace, 2000);
+            setTimeout(fetchWorkspace, 4000);
+          }
         }
 
         // Handle Final Output
@@ -208,10 +269,14 @@ export default function AgentPanel({ onClose }: AgentPanelProps) {
           setIsAgentThinking(false);
           setAgentReasoning(''); // Clear reasoning on completion
           if (data.output) {
-            addMessage('agent', data.output);
+            addMessage('agent', data.output, data.reasoning || '', data.files_created || []);
           }
-          // Force a final workspace refresh to guarantee UI sync
+          // Burst-refresh the workspace after the agent finishes.
+          // Files written right at completion may arrive slightly after the WS event.
           fetchWorkspace();
+          setTimeout(fetchWorkspace, 1500);
+          setTimeout(fetchWorkspace, 3000);
+          setTimeout(fetchWorkspace, 5000);
         }
 
         // Backward compatibility for simple output
@@ -223,7 +288,7 @@ export default function AgentPanel({ onClose }: AgentPanelProps) {
         }
 
         if (data.error) {
-          addMessage('agent', `❌ Error: ${data.error}`);
+          addMessage('agent', `❌ Error: ${data.error}`, '', []);
           setIsAgentThinking(false);
           setAgentReasoning('');
         }
@@ -248,7 +313,7 @@ export default function AgentPanel({ onClose }: AgentPanelProps) {
     if (isAgentThinking && projectId) {
       interval = setInterval(() => {
         fetchWorkspace();
-      }, 2000); // Poll every 2 seconds
+      }, 1500); // Poll every 1.5 seconds for faster in-progress updates
     }
     return () => {
       if (interval) clearInterval(interval);
@@ -295,7 +360,7 @@ export default function AgentPanel({ onClose }: AgentPanelProps) {
     }
   };
 
-  const addMessage = async (sender: 'user' | 'agent', text: string) => {
+  const addMessage = async (sender: 'user' | 'agent', text: string, reasoning?: string, files_created?: string[]) => {
     // Only accept if it's not a duplicate of the LAST message from the SAME sender
     setMessages(prev => {
       if (prev.length > 0) {
@@ -304,7 +369,7 @@ export default function AgentPanel({ onClose }: AgentPanelProps) {
           return prev; // Ignore duplicate
         }
       }
-      return [...prev, { sender, text }];
+      return [...prev, { sender, text, reasoning, files_created }];
     });
 
     // Auto-title session from first user message
@@ -547,6 +612,16 @@ export default function AgentPanel({ onClose }: AgentPanelProps) {
                   <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[rehypeKatex]}>
                     {msg.text}
                   </ReactMarkdown>
+                  {/* Collapsible reasoning log */}
+                  <CollapsibleReasoning reasoning={msg.reasoning || ''} />
+                  {/* Affected file references */}
+                  <FileReferences
+                    files={msg.files_created || []}
+                    onOpen={async (filePath) => {
+                      await fetchWorkspace();
+                      setActiveFileId(filePath);
+                    }}
+                  />
                   <button
                     onClick={() => {
                       navigator.clipboard.writeText(msg.text);

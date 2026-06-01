@@ -100,10 +100,10 @@ export function EditorProvider({ children, projectId }: { children: ReactNode, p
 
   const handleSetActiveFile = useCallback((id: string | null) => {
     setActiveFileId(id);
-    if (id && !openFiles.includes(id)) {
-      setOpenFiles(prev => [...prev, id]);
+    if (id) {
+      setOpenFiles(prev => prev.includes(id) ? prev : [...prev, id]);
     }
-  }, [openFiles]);
+  }, []);
 
   const closeFile = (id: string) => {
     setOpenFiles(prev => {
@@ -154,9 +154,7 @@ export function EditorProvider({ children, projectId }: { children: ReactNode, p
   const deleteNode = async (id: string) => {
     try {
       await apiClient.ide.deleteFile(projectId, id);
-      if (activeFileId === id || activeFileId?.startsWith(id + '/')) {
-        setActiveFileId(null);
-      }
+      closeFile(id);
       await fetchWorkspace();
     } catch (e) {
       console.error("Delete failed:", e);
