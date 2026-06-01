@@ -89,7 +89,10 @@ export function EditorProvider({ children, projectId }: { children: ReactNode, p
     try {
       await apiClient.ide.writeFile(projectId, filePath, content, false);
       await fetchWorkspace();
+      // Use handleSetActiveFile (not the raw setter) so the file is also
+      // added to openFiles and appears as a tab in the TabBar.
       setActiveFileId(filePath);
+      setOpenFiles(prev => prev.includes(filePath) ? prev : [...prev, filePath]);
     } catch (e) {
       console.error("Create file failed:", e);
     }
@@ -167,7 +170,15 @@ export function EditorProvider({ children, projectId }: { children: ReactNode, p
 
     try {
       await apiClient.ide.renameFile(projectId, id, newPath);
+      // Update the activeFileId if we just renamed the active file
       if (activeFileId === id) setActiveFileId(newPath);
+      // Update the openFiles array so tab names and icons refresh correctly
+      setOpenFiles(prev => prev.map(f => {
+        if (f === id) return newPath;
+        // Also handle children if a folder was renamed
+        if (f.startsWith(id + '/')) return newPath + f.substring(id.length);
+        return f;
+      }));
       await fetchWorkspace();
     } catch (e) {
       console.error("Rename failed:", e);

@@ -114,6 +114,14 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ code, language = "python", onCh
     emmetCSS(monaco);
     emmetJSX(monaco);
 
+    // Force Monaco to instantly show completion list when typing '!' in HTML files
+    monaco.languages.registerCompletionItemProvider('html', {
+      triggerCharacters: ['!'],
+      provideCompletionItems: () => {
+        return { suggestions: [] };
+      }
+    });
+
     // Some minor tweaks to ensure editor treats `!` as a trigger
     monaco.languages.setLanguageConfiguration('html', {
       wordPattern: /(-?\d*\.\d\w*)|([^\`\~\!\@\#\%\^\&\*\(\)\-\=\+\[\{\]\}\\\|\;\:\'\"\,\.\<\>\/\?\s]+)/g
@@ -218,7 +226,10 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ code, language = "python", onCh
         beforeMount={handleBeforeMount}
         onChange={onChange}
         options={{
-          minimap: { enabled: true },
+          minimap: {
+            enabled: true,
+            showSlider: "always"
+          },
           fontSize: 13,
           fontFamily: '"JetBrains Mono", "Fira Code", monospace',
           fontLigatures: true,

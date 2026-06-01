@@ -109,16 +109,28 @@ export default function TerminalPanel({ onClose }: TerminalPanelProps) {
             const ws = new WebSocket(wsUrl);
             wsRef.current = ws;
 
+            // Queue for commands that arrive before WS is fully connected
+            const pendingCommands: string[] = [];
+
             ws.onopen = () => {
                 term.writeln("\x1b[32mSynthea Terminal Connected...\x1b[0m");
+                // Flush any commands that were queued before WS connected
+                while (pendingCommands.length > 0) {
+                    const cmd = pendingCommands.shift()!;
+                    ws.send(JSON.stringify({ command: `${cmd}\r\n` }));
+                }
             };
 
             const handleRunCommand = (event: any) => {
                 const command = event?.detail?.command as string | undefined;
-                if (!command || ws.readyState !== WebSocket.OPEN) return;
-                // \x1b = Escape — clears any partial input in standard Windows console
-                // Then send the actual command followed by Enter
-                ws.send(JSON.stringify({ command: `\x1b${command}\r\n` }));
+                if (!command) return;
+                if (ws.readyState === WebSocket.OPEN) {
+                    // WS is ready, send immediately
+                    ws.send(JSON.stringify({ command: `${command}\r\n` }));
+                } else {
+                    // WS not ready yet, queue it for when onopen fires
+                    pendingCommands.push(command);
+                }
             };
 
             const handleKillCommand = () => {

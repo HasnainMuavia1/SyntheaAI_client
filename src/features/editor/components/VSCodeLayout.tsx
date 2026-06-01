@@ -243,11 +243,11 @@ export default function VSCodeLayout({ children, fileTree, panel, fileName }: VS
       if (!command) return;
 
       if (!showTerminal) {
-        // Terminal not mounted yet — open it and re-dispatch after WS connects
+        // Terminal not mounted yet — open it and queue the command
         pendingCommandRef.current = command;
         setShowTerminal(true);
       }
-      // If terminal already open the event bubbles directly to TerminalPanel
+      // If terminal already open, TerminalPanel's own listener will handle it
     };
 
     window.addEventListener('synthea-run-command', handleRunRequest);
@@ -260,9 +260,10 @@ export default function VSCodeLayout({ children, fileTree, panel, fileName }: VS
     if (!showTerminal || !pendingCommandRef.current) return;
     const cmd = pendingCommandRef.current;
     pendingCommandRef.current = null;
+    // Give the WebSocket time to connect before re-dispatching
     const timer = setTimeout(() => {
       window.dispatchEvent(new CustomEvent('synthea-run-command', { detail: { command: cmd } }));
-    }, 1500); // give WS time to connect
+    }, 2000);
     return () => clearTimeout(timer);
   }, [showTerminal]);
 
