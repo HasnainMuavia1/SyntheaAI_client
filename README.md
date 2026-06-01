@@ -1,74 +1,66 @@
-# Synthea Frontend
+# 🪐 Synthea Frontend (Next.js 14)
 
-This directory contains the Next.js frontend for the Synthea project.
-
-## Prerequisites
-
-- Node.js 18+
-- npm or yarn
-
-## Setup
-
-1. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-2. Configure environment variables:
-   Create a `.env.local` file based on the project requirements (ensure Supabase and API URLs are set).
-
-## Development
-
-Run the development server:
-```bash
-npm run dev
-```
-
-The application will be available at `http://localhost:3000`.
-
-## Build
-
-To create a production build:
-```bash
-npm run build
-```
-
-To start the production server:
-```bash
-npm run start
-```
-
-## Linting
-To check for code quality issues:
-```bash
-npm run lint
-```
+This is the interactive IDE and AI agent client dashboard for Synthea, built with **Next.js 14**, **Tailwind CSS**, and **Framer Motion**. It communicates with the Python Django backend using highly optimized REST and Websocket protocols.
 
 ---
 
-## Running with Docker (Recommended)
+## ⚡ Quick Start: Running with Docker Compose (Recommended)
 
-You can run the frontend seamlessly inside Docker with automatic server-side API proxying to the backend service.
+Since the frontend and backend are structured as separate microservices, they communicate over a shared Docker network named `synthea-net`. Follow these steps to spin up the entire application:
 
-### 1. Prerequisites
-Ensure you have created the shared external Docker network once:
+### Step 1: Create the Shared Network (One-time Setup)
+Run this command from your terminal to create the shared container network:
 ```bash
 docker network create synthea-net
 ```
 
-### 2. Build & Run
-To build the Next.js image and start the frontend service in the background:
+### Step 2: Build and Start the Backend
+Navigate to `SyntheaAI_server/` and start the backend container:
 ```bash
 docker compose up -d --build
 ```
-The application will be available at **[http://localhost:3000/](http://localhost:3000/)**.
+*Note: The first build will compile PortAudio and download PyTorch (CPU version). This runs automatically but takes a few minutes.*
 
-### 3. Build Arguments & Configuration
-* **`BACKEND_URL`**: Used for server-side API calls/proxies. Defaults to `http://synthea-backend:8000`.
-* **`NEXT_PUBLIC_API_BASE_URL`**: Used for browser-side API calls. Defaults to `http://localhost:8000/api`.
+### Step 3: Create an Admin / Superuser Account (Optional)
+If you want to access the Django admin panel, create a superuser:
+```bash
+docker exec -it synthea-backend python manage.py createsuperuser
+```
 
-### 4. Useful Commands
-* **Logs**: `docker compose logs -f`
-* **Restart**: `docker compose restart`
-* **Clean rebuild**: `docker compose build --no-cache`
+### Step 4: Build and Start the Frontend
+Navigate to `SyntheaAI_client/` and start the Next.js container:
+```bash
+docker compose up -d --build
+```
+Access the application at 👉 **[http://localhost:3000](http://localhost:3000)** and log in using either the superuser credentials or by registering a new account.
 
+---
+
+## 🛠️ Local Development (Without Docker)
+
+### Prerequisites
+- Node.js 20+
+- npm or yarn
+
+### 1. Install Dependencies
+```bash
+npm install
+```
+
+### 2. Configure Local Proxy Target
+By default, the client proxies server-side `/api/*` rewrites to `http://127.0.0.1:8000`. Ensure your local Django server is running on port `8000`.
+
+### 3. Launch Development Server
+```bash
+npm run dev
+```
+
+Open **[http://localhost:3000](http://localhost:3000)** to begin coding.
+
+---
+
+## ⚙️ Docker Network Proxy Settings
+Next.js statically bakes proxy targets at build time. During container compilation, we explicitly pass the container's private DNS record as build arguments:
+- **`NEXT_PUBLIC_API_BASE_URL`**: `http://localhost:8000/api` (Browser-side endpoint mapping)
+- **`BACKEND_URL`**: `http://synthea-backend:8000` (Server-side Next.js proxy route)
+These are configured out-of-the-box in `docker-compose.yml`.
