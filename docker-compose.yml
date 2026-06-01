@@ -1,0 +1,33 @@
+# Synthea frontend — Next.js 14.
+#
+#   docker compose up --build        (run from SyntheaAI_client/)
+#
+# App:  http://localhost:3000
+#
+# Shares the external "synthea-net" network so server-side "/api/*" rewrites can
+# reach the backend container ("synthea-backend"). Create it once with:
+#   docker network create synthea-net
+# (Browser-side calls use the backend published on the host at localhost:8000.)
+
+services:
+  frontend:
+    build:
+      context: .
+      args:
+        # Browser-side base URL (backend is published on the host).
+        NEXT_PUBLIC_API_BASE_URL: http://localhost:8000/api
+        BACKEND_URL: http://synthea-backend:8000
+    image: synthea-frontend
+    container_name: synthea-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      # Server-side Next.js rewrite target inside the shared network.
+      BACKEND_URL: http://synthea-backend:8000
+    networks:
+      - synthea-net
+    restart: unless-stopped
+
+networks:
+  synthea-net:
+    external: true

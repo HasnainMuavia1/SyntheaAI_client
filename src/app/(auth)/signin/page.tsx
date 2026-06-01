@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { Mail, Lock, Plus, Activity, Shield, Cpu, Mic, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useVoiceAgent } from '@/features/agent/hooks/useVoiceAgent';
@@ -9,7 +9,6 @@ import Cookies from 'js-cookie';
 
 export default function SignInPage() {
   const router = useRouter();
-  const searchParams = useSearchParams();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
@@ -126,7 +125,7 @@ export default function SignInPage() {
 
             <form onSubmit={(e) => { e.preventDefault(); handleEmailLogin(); }} className="space-y-3">
               <div className="space-y-2">
-                <input required type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full h-11 px-4 bg-white/5 border border-white/5 focus:border-white/20 focus:outline-none text-[10px] tracking-widest text-white placeholder:text-white/10 uppercase" placeholder="USER_EMAIL" />
+                <input required type="text" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full h-11 px-4 bg-white/5 border border-white/5 focus:border-white/20 focus:outline-none text-[10px] tracking-widest text-white placeholder:text-white/10 uppercase" placeholder="USER_NAME" />
                 <input required type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="w-full h-11 px-4 bg-white/5 border border-white/5 focus:border-white/20 focus:outline-none text-[10px] tracking-widest text-white placeholder:text-white/10 uppercase" placeholder="SECURITY_KEY" />
               </div>
 
