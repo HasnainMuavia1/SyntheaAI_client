@@ -93,7 +93,7 @@ export default function AgentPanel({ onClose }: AgentPanelProps) {
   const { state, transcript, startListening, stopListening, reset } = useVoiceAgent();
 
   // FIX: Destructure uploadFile and createFile from context
-  const { createFile, uploadFile, projectId, fetchWorkspace, setActiveFileId, closeFile } = useEditor();
+  const { createFile, uploadFile, projectId, fetchWorkspace, setActiveFileId, closeFile, deleteNode } = useEditor();
 
   const [inputValue, setInputValue] = useState('');
   const [messages, setMessages] = useState<ChatMsg[]>([]);
@@ -349,14 +349,15 @@ export default function AgentPanel({ onClose }: AgentPanelProps) {
     setPendingFileChanges([]);
   };
 
-  const handleRejectChanges = () => {
-    const files = pendingFileChanges.join(', ');
+  const handleRejectChanges = async () => {
+    const files = [...pendingFileChanges];
     setPendingFileChanges([]);
-    addMessage('user', `I reject the changes made to: ${files}. Please revert them.`);
-    if (agentWsRef.current && agentWsRef.current.readyState === WebSocket.OPEN) {
-      agentWsRef.current.send(JSON.stringify({
-        message: `I reject the changes made to: ${files}. Please revert the file contents to their previous state.`
-      }));
+    for (const file of files) {
+      try {
+        await deleteNode(file);
+      } catch (err) {
+        console.error("Failed to delete file on reject:", file, err);
+      }
     }
   };
 
